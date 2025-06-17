@@ -1,0 +1,18 @@
+<div class="overlay" *ngIf="visible">
+  <div class="modal animate-in">
+    <p>¿Estás seguro de eliminar el producto {{ productName }}?</p>
+
+    <!-- Footer -->
+    <div class="form-footer">
+      <hr />
+      <div class="form-actions">
+        <div class="form-field">
+          <button class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+        </div>
+        <div class="form-field">
+          <button class="btn btn-primary" (click)="onConfirm()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="list-header"> 
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="Search..."
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="updateDisplayedProducts()">
+    <button class="btn btn-primary" (click)="goToAddProduct()">Agregar</button> 
+</div>
+
+<!-- Modal for confirmation of deletion -->
+<app-modal-confirmation
+  [productName]="OnDeleteProduct?.name"
+  [visible]="showConfirmModal"
+  (confirm)="confirmDelete()"
+  (cancel)="cancelDelete()">
+</app-modal-confirmation>
+
+<!-- Modal for success alert after deletion -->
+<app-alert-modal
+  [visible]="showSuccessAlert"
+  [message]="'El producto ha sido eliminado exitosamente.'"
+  (close)="showSuccessAlert = false">
+</app-alert-modal>
+
+<div class="product-list-container">
+
+  <div class="table-wrapper">
+    <ng-container *ngIf="isLoading; else dataLoaded">
+      <app-skeleton-loader [rows]="pageSize"></app-skeleton-loader>
+    </ng-container>
+
+    <ng-template #dataLoaded>
+      <table class="product-table">
+        <thead class="table-header">
+          <tr>
+            <th>Logo</th>
+            <th>Nombre del producto</th>
+            <th>Descripción <img src="/icon/infoIcon.png" alt="Info" class="info-icon" /></th>
+            <th>Fecha de liberación <img src="/icon/infoIcon.png" alt="Info" class="info-icon" /></th>
+            <th>Fecha de reestructuración <img src="/icon/infoIcon.png" alt="Info" class="info-icon" /></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of displayedProducts">
+            <td>
+                <ng-container *ngIf="isValidImageUrl(product.logo); else showInitials">
+                    <img [src]="product.logo" alt="Logo" class="product-logo" />
+                </ng-container>
+                <ng-template #showInitials>
+                    <div class="circle-initials">JG</div>
+                </ng-template>
+            </td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.date_release | date:'dd/MM/yyyy' }}</td>
+            <td>{{ product.date_revision | date:'dd/MM/yyyy' }}</td>
+            <td>
+                <app-dropdown-menu
+                    [id]="product.id"
+                    (edit)="onEdit(product)"
+                    (delete)="onDelete(product)">
+                </app-dropdown-menu>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </div>
+
+  <footer class="list-footer">
+    <span>{{ displayedProducts.length }} Resultados</span> <select 
+      class="page-size-select"
+      [(ngModel)]="pageSize"
+      (ngModelChange)="updateDisplayedProducts()">
+      <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
+    </select>
+  </footer>
+</div>

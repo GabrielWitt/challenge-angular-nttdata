@@ -1,0 +1,23 @@
+
+      <table class="product-table">
+        <thead class="table-header">
+          <tr>
+            <th>Logo</th>
+            <th>Nombre del producto</th>
+            <th>Descripción <img src="/icon/infoIcon.png" alt="Info" class="info-icon" /></th>
+            <th>Fecha de liberación <img src="/icon/infoIcon.png" alt="Info" class="info-icon" /></th>
+            <th>Fecha de reestructuración <img src="/icon/infoIcon.png" alt="Info" class="info-icon" /></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let _ of rowsArray">
+            <td><div class="skeleton-logo"></div></td>
+            <td><div class="skeleton-line short"></div></td>
+            <td><div class="skeleton-line"></div></td>
+            <td><div class="skeleton-line short"></div></td>
+            <td><div class="skeleton-line short"></div></td>
+            <td><div class="skeleton-button"></div></td>
+          </tr>
+        </tbody>
+      </table>

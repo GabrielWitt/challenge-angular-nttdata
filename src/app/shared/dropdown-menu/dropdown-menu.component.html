@@ -1,0 +1,7 @@
+<div class="dropdown">
+  <button class="button-option" (click)="toggle()">⋮</button>
+  <div *ngIf="show" class="menu">
+    <button (click)="onEdit()">Editar</button>
+    <button (click)="onDelete()">Eliminar</button>
+  </div>
+</div>

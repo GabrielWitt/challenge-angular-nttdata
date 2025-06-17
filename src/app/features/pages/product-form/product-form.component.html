@@ -1,0 +1,88 @@
+<div class="form-container">
+  
+  <h1 class="form-title">Formulario de Registro</h1>
+  <hr>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="id">ID</label>
+        <input type="text" [class.is-invalid]="isInvalid('id')" id="id" formControlName="id">
+        <div *ngIf="isInvalid('id')" class="error-message">
+          {{ getErrorMessage('id') }} </div>
+      </div>
+      
+      <div class="form-field">
+        <label for="name">Nombre</label>
+        <input type="text" [class.is-invalid]="isInvalid('name')" id="name" formControlName="name">
+        <div *ngIf="isInvalid('name')" class="error-message">
+          {{ getErrorMessage('name') }}
+        </div>
+      </div>
+      
+      <div class="form-field">
+        <label for="description">Descripción</label>
+        <input type="text" [class.is-invalid]="isInvalid('description')" id="description" formControlName="description">
+        <div *ngIf="isInvalid('description')" class="error-message">
+          {{ getErrorMessage('description') }}
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="logo">Logo</label>
+        <input type="text" [class.is-invalid]="isInvalid('logo')" id="logo" formControlName="logo">
+        <div *ngIf="isInvalid('logo')" class="error-message">
+          {{ getErrorMessage('logo') }}
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="date_release">Fecha Liberación</label>
+        <input type="date" [class.is-invalid]="isInvalid('date_release')" id="date_release" formControlName="date_release">
+        <div *ngIf="isInvalid('date_release')" class="error-message">
+          {{ getErrorMessage('date_release') }}
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="date_revision">Fecha Revisión</label>
+        <input type="date" id="date_revision" formControlName="date_revision">
+         <div *ngIf="isInvalid('date_revision')" class="error-message">
+          {{ getErrorMessage('date_revision') }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <div class="form-field" *ngIf="!isSubmitting">
+        <button type="button" class="btn btn-light" (click)="onBack()">Regresar</button>
+      </div>
+
+      <div class="form-field" *ngIf="!isEditMode && !isSubmitting">
+        <button type="button" class="btn btn-secondary" (click)="onReset()">Reiniciar</button> 
+      </div>
+
+      <div class="form-field">
+        <button 
+          type="submit" 
+          class="btn btn-primary" 
+          [class.is-disabled]="productForm.invalid || isSubmitting" 
+          [disabled]="productForm.invalid || isSubmitting">
+            <ng-container *ngIf="!isSubmitting">
+              {{ isEditMode ? 'Guardar Cambios' : 'Agregar' }}
+            </ng-container>
+            <ng-container *ngIf="isSubmitting">
+              Procesando... <span class="spinner"></span> 
+            </ng-container>
+        </button>
+      </div>
+    </div>
+  </form>
+  
+</div>
+
+<!-- Modal for success alert after deletion -->
+<app-alert-modal
+    [visible]="showSuccessAlert"
+    [message]="'El producto ha sido actualizado exitosamente.'"
+    (close)="onBack()">
+</app-alert-modal>

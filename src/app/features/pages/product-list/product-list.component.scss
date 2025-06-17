@@ -1,0 +1,167 @@
+:host {
+  display: block;
+  padding: 2rem;
+}
+
+// 📦 Contenedor principal
+.product-list-container {
+  max-width: 100%;
+  margin: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+}
+
+// 🧭 Encabezado con búsqueda y botón Agregar
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+// 🔍 Input de búsqueda
+.search-input {
+  padding: 0.75rem;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+// 🔘 Estilo base de botones
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #ffd700;
+  color: #333;
+}
+
+// 🧾 Contenedor para manejar overflow horizontal en móviles
+.table-wrapper {
+  overflow-x: auto;
+}
+
+// 📋 Tabla de productos
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  th {
+    font-weight: 600;
+    color: #666;
+  }
+
+  .product-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+// 🎨 Encabezado de tabla
+.table-header {
+  background-color: #fafafb;
+  color: #fff; // Aunque es blanco, asegúrate que haya contraste con el fondo
+}
+
+// ℹ️ Icono informativo
+.info-icon {
+  width: 16px;
+  height: 16px;
+  fill: #666;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+// 🟡 Círculo con iniciales
+.circle-initials {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+// 📉 Footer con resultados y select de tamaño de página
+.list-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  color: #666;
+}
+
+.page-size-select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+// 📱 Responsive Design para tablets y móviles
+@media (max-width: 768px) {
+  // Encabezado apilado
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  // Tabla más amigable visualmente
+  .product-table {
+    font-size: 13px;
+
+    th, td {
+      padding: 0.6rem 0.4rem;
+      white-space: nowrap; // Evita que se partan en varias líneas
+    }
+
+    .product-logo,
+    .circle-initials {
+      width: 32px;
+      height: 32px;
+      font-size: 12px;
+    }
+  }
+
+  // Footer apilado en vertical
+  .list-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .page-size-select {
+    width: 100%;
+  }
+
+  // Input de búsqueda más pequeño y centrado
+  .search-input {
+    width: 100%;
+    max-width: 270px; // Limita el ancho en pantallas pequeñas
+    margin: 0 auto;   // Centra el input si hay espacio
+  }
+}
