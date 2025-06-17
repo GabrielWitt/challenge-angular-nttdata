@@ -1,80 +1,84 @@
-# 🏦 Prueba Técnica - Frontend Angular 2024
+# 🏦 Prueba Técnica – Frontend Angular 2025
 
-Este proyecto resuelve el ejercicio técnico solicitado para el rol de Frontend Developer usando Angular, cumpliendo con los requisitos funcionales, buenas prácticas, diseño responsive y pruebas unitarias con Jest.
+Este proyecto resuelve el ejercicio técnico solicitado para el rol de **Frontend Developer** utilizando **Angular**. Cumple con los requisitos funcionales, buenas prácticas de desarrollo, diseño responsive y pruebas unitarias con **Jest**.
 
 ---
 
-## ✅ Funcionalidades implementadas
+## ✅ Funcionalidades Implementadas
 
-| Código | Funcionalidad                                                       | Estado     |
-|--------|----------------------------------------------------------------------|------------|
-| F1     | Listado de productos financieros                                    | ✅ Completo |
-| F2     | Búsqueda de productos por nombre o descripción                      | ✅ Completo |
-| F3     | Selección de cantidad de registros a mostrar                        | ✅ Completo |
-| F4     | Agregar nuevo producto con validaciones y formulario limpio         | ✅ Completo |
-| F5     | Edición de producto con ID deshabilitado y validaciones activas     | ✅ Completo |
-| F6     | Eliminación de producto con modal de confirmación y alerta exitosa  | ✅ Completo |
-| Extra  | Skeleton Loader y loading buttons                                   | ✅ Completo |
-| Extra  | Diseño totalmente responsive sin frameworks externos                | ✅ Completo |
+| Código | Funcionalidad                                                      | Estado     |
+|--------|---------------------------------------------------------------------|------------|
+| F1     | Listado de productos financieros                                   | ✅ Completo |
+| F2     | Búsqueda de productos por nombre o descripción                     | ✅ Completo |
+| F3     | Selección de cantidad de registros a mostrar                       | ✅ Completo |
+| F4     | Agregar nuevo producto con validaciones y formulario limpio        | ✅ Completo |
+| F5     | Edición de producto con ID deshabilitado y validaciones activas    | ✅ Completo |
+| F6     | Eliminación de producto con modal de confirmación y alerta exitosa | ✅ Completo |
+| Extra  | Skeleton loader y botones de carga                                 | ✅ Completo |
+| Extra  | Diseño 100% responsive sin frameworks externos                     | ✅ Completo |
 
 ---
 
 ## 🧪 Cobertura de Pruebas
 
-- **Framework usado:** Jest
-- **Cobertura mínima:** ≥ 70%
-- Pruebas incluidas:
-  - Inicialización de componentes
-  - Validaciones (sync y async)
-  - Eventos de formulario
-  - Acciones de crear, editar y eliminar
+- **Framework usado:** Jest  
+- **Cobertura mínima alcanzada:** ≥ 70%
+
+Pruebas implementadas:
+- Inicialización de componentes
+- Validaciones (sincrónicas y asincrónicas)
+- Eventos del formulario
+- Acciones de creación, edición y eliminación
 
 ---
 
 ## 📦 Estructura del Proyecto
 
-- **ProductListComponent:** listado con búsqueda, paginación y loader
-- **ProductFormComponent:** formulario de alta y edición con validaciones
-- **DropdownMenuComponent:** menú contextual para editar o eliminar
-- **ModalConfirmation:** modal con animación y UX de carga
-- **AlertModal:** mensajes de éxito tras acciones
-- **SkeletonLoader:** tabla simulada mientras carga el contenido
+- `ProductListComponent`: listado con búsqueda, paginación y loader
+- `ProductFormComponent`: formulario de alta/edición con validaciones
+- `DropdownMenuComponent`: menú contextual para editar o eliminar
+- `ModalConfirmationComponent`: modal con animación y feedback visual
+- `AlertModalComponent`: mensajes de éxito tras acciones
+- `SkeletonLoaderComponent`: tabla simulada durante carga de contenido
 
 ---
 
-## ✅ Validaciones
+## 🛡️ Validaciones
 
-| Campo         | Reglas                                                                 |
-|---------------|------------------------------------------------------------------------|
-| id            | Requerido, 3-10 caracteres, validación asíncrona                       |
-| name          | Requerido, 5-100 caracteres                                            |
-| description   | Requerido, 10-200 caracteres                                           |
-| logo          | Requerido                                                              |
-| date_release  | Requerido, igual o posterior a hoy                                     |
-| date_revision | Calculado automáticamente (+1 año), requerido                         |
+| Campo          | Reglas                                                                  |
+|----------------|-------------------------------------------------------------------------|
+| `id`           | Requerido, 3–10 caracteres, validación asincrónica                      |
+| `name`         | Requerido, 5–100 caracteres                                              |
+| `description`  | Requerido, 10–200 caracteres                                             |
+| `logo`         | Requerido (URL válida)                                                  |
+| `date_release` | Requerido, debe ser igual o posterior a la fecha actual                |
+| `date_revision`| Calculado automáticamente (+1 año), requerido                           |
 
 ---
 
-## ⚙️ Tecnologías usadas
+## ⚙️ Tecnologías Usadas
 
 - Angular 16+
 - TypeScript
 - RxJS
 - Jest
-- SCSS puro (sin frameworks de UI)
+- SCSS (sin frameworks de UI)
 - Git
 
 ---
 
-## ▶️ Cómo ejecutar el proyecto
+## ▶️ Cómo Ejecutar el Proyecto
 
 ```bash
-cd challenge-angular-nttda
+cd challenge-angular-nttdata
 npm install
 ng serve
 
-## ▶️ Cómo ejecutar el pruebas con Jest
-cd challenge-angular-nttda
+
+## 🧪 Cómo Ejecutar las Pruebas con Jest
+
+```bash
+cd challenge-angular-nttdata
 npm install
 npm run test
 
