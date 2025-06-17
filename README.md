@@ -73,7 +73,7 @@ Pruebas implementadas:
 cd challenge-angular-nttdata
 npm install
 ng serve
-
+```
 
 ## 🧪 Cómo Ejecutar las Pruebas con Jest
 
@@ -81,5 +81,8 @@ ng serve
 cd challenge-angular-nttdata
 npm install
 npm run test
+```
 
-Autor: Gabriel Witt
+---
+
+**Autor:** Gabriel Witt
